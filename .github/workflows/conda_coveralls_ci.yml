@@ -1,4 +1,4 @@
-name: Run tests, build docs, and deploy
+name: Utilz
 
 on:
   push:
