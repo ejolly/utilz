@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - master
+      - main
 
 jobs:
   # Job (1): Run testing in parallel against multiples OSs and Python versions
