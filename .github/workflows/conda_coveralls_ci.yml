@@ -22,7 +22,7 @@ jobs:
         # OSs to test
         os: [ubuntu-latest, macos-latest, windows-latest]
         # Python versions to test
-        python-version: [3.8]
+        python-version: [3.7, 3.8]
         # By default everything should pass for the workflow to pass
         ok-fail: [false]
         include:
