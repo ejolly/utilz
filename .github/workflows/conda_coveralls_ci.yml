@@ -113,11 +113,12 @@ jobs:
         uses: actions/cache@v2
         with:
           path: ${{ steps.pip-cache.outputs.dir }}
-          key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements-dev.txt') }}
+          key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements.txt') }}
           restore-keys: |
             ${{ runner.os }}-pip-
 
       - name: Install deps
+        run: python3 -m pip install . -r requirements.txt
         run: python3 -m pip install -r ./requirements-dev.txt
 
       - name: Build docs
@@ -133,6 +134,7 @@ jobs:
   deploy:
     name: Build & deploy package
     runs-on: ubuntu-latest
+    needs: test
     steps:
       - name: Say Hi
         shell: bash
