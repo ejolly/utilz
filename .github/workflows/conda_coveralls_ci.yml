@@ -22,11 +22,14 @@ jobs:
         # OSs to test
         os: [ubuntu-latest, macos-latest, windows-latest]
         # Python versions to test
-        python-version: [3.8, 3.9]
+        python-version: [3.8]
         # By default everything should pass for the workflow to pass
         ok-fail: [false]
         include:
-          # Latest mac and windows fail to install deps properly so tell workflow its ok if these fail
+          # Rather than include 3.9 in the python versions, do it here so we can ignore failures on mac and windows with 3.9 (they have install issues)
+          - os: ubuntu-latest
+            python-version: 3.9
+            ok-fail: false
           - os: macos-latest
             python-version: 3.9
             ok-fail: true
